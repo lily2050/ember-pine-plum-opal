@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --color-bg: #f3efe8;
+  --color-fg: #1c1917;
+  --color-muted: #78716c;
+  --color-card: #fffcf8;
+  --color-border: #e5e0d6;
+  --color-primary: #0d4f4a;
+  --color-primary-2: #1a6b64;
+  --color-primary-soft: #e8f3f1;
+  --color-th: #f0ebe3;
+  --color-ok: #0d9488;
+  --color-warn: #d97706;
+  --color-err: #dc2626;
+  --color-sidebar: #0d4f4a;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+.dark {
+  --color-bg: #0b1220;
+  --color-fg: #e5e7eb;
+  --color-muted: #9ca3af;
+  --color-card: #111827;
+  --color-border: #1f2a3d;
+  --color-primary: #14b8a6;
+  --color-primary-2: #2dd4bf;
+  --color-primary-soft: #134e4a;
+  --color-th: #0f172a;
+  --color-ok: #2dd4bf;
+  --color-warn: #fbbf24;
+  --color-err: #f87171;
+  --color-sidebar: #0f172a;
+}
+
+@layer base {
+  html {
+    direction: rtl;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    color: inherit;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.tbl-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.tbl-scroll table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.tbl-scroll th {
+  background: var(--color-th);
+  color: var(--color-muted);
+  font-weight: 600;
+  text-align: right;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+.tbl-scroll td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+.tbl-scroll tr:hover td {
+  background: color-mix(in oklab, var(--color-primary) 6%, transparent);
+}
+
+.meter {
+  height: 8px;
+  border-radius: 99px;
+  background: var(--color-th);
+  overflow: hidden;
+}
+.meter > span {
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  background: var(--color-primary-2);
+}
